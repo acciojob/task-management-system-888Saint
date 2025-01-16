@@ -7,23 +7,35 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class TaskManagementSystem {
-	 private Set<String> tasks;
+	    private Set<String> tasks;
 	    private List<String> completedTasks;
 
 	    public TaskManagementSystem() {
 	        // your code goes here
+			tasks = new HashSet<>();
+			completedTasks = new ArrayList<>();
 	    }
 
 	    public void addTask(String taskName) {
 	    	 // your code goes here
+			tasks.add(taskName);
+			System.out.println("Task '" +taskName+ "' added successfully.");
 	    }
 
 	    public void markTaskAsCompleted(String taskName) {
 	    	 // your code goes here
+			completedTasks.add(taskName);
+			tasks.remove(taskName);
+			System.out.println("Task '" +taskName+ "' marked as completed.");
 	    }
 
 	    public void displayAllTasks() {
 	    	 // your code goes here
+			System.out.println("Tasks to be completed: ");
+			for  (String task : tasks)
+			{
+				System.out.println(task);
+			}
 	    }
 
 	    public static void main(String[] args) {
